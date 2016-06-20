@@ -30,8 +30,11 @@ import com.github.nisrulz.sensey.OrientationDetector;
 import com.github.nisrulz.sensey.ProximityDetector;
 import com.github.nisrulz.sensey.Sensey;
 import com.github.nisrulz.sensey.ShakeDetector;
-import com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.GestureStrategy;
-import com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.gestures.TurnRightGestureStrategy;
+import com.github.nisrulz.sensey.gestures.GestureStrategy;
+import com.github.nisrulz.sensey.gestures.TurnLeftGestureStrategy;
+import com.github.nisrulz.sensey.gestures.TurnRightGestureStrategy;
+import com.github.nisrulz.sensey.gestures.TurnoverGestureStrategy;
+import com.github.nisrulz.sensey.gestures.TurnroundGestureStrategy;
 
 public class MainActivity extends AppCompatActivity
         implements CompoundButton.OnCheckedChangeListener {
@@ -212,10 +215,34 @@ public class MainActivity extends AppCompatActivity
                     turnRightGestureStrategy.subscribe(new GestureStrategy.GestureHandler() {
                         @Override
                         public void onOccurred() {
-                            txt_result.setText("TITS");
+                            txt_result.setText("TurnRightGestureStrategy");
                         }
                     });
-                    Sensey.getInstance().startGestureDetection(turnRightGestureStrategy);
+                    TurnLeftGestureStrategy turnLeftGestureStrategy = new TurnLeftGestureStrategy();
+                    turnLeftGestureStrategy.subscribe(new GestureStrategy.GestureHandler() {
+                        @Override
+                        public void onOccurred() {
+                            txt_result.setText("TurnLeftGestureStrategy");
+                        }
+                    });
+                    TurnoverGestureStrategy turnoverGestureStrategy = new TurnoverGestureStrategy();
+                    turnoverGestureStrategy.subscribe(new GestureStrategy.GestureHandler() {
+                        @Override
+                        public void onOccurred() {
+                            txt_result.setText("TurnoverGestureStrategy");
+                        }
+                    });
+                    TurnroundGestureStrategy turnroundGestureStrategy = new TurnroundGestureStrategy();
+                    turnroundGestureStrategy.subscribe(new GestureStrategy.GestureHandler() {
+                        @Override
+                        public void onOccurred() {
+                            txt_result.setText("TurnroundGestureStrategy");
+                        }
+                    });
+                    Sensey.getInstance().startGestureDetection(turnRightGestureStrategy,
+                            turnLeftGestureStrategy,
+                            turnoverGestureStrategy,
+                            turnroundGestureStrategy);
                 } else {
                     Sensey.getInstance().stopGestureDetection();
                 }

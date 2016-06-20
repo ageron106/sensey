@@ -1,8 +1,6 @@
-package com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.gestures;
+package com.github.nisrulz.sensey.gestures;
 
 import android.hardware.SensorEvent;
-
-import com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.GestureStrategy;
 
 /**
  * Created by dmitry on 18.06.16.

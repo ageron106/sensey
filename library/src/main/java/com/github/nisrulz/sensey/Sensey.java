@@ -20,8 +20,7 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 
-import com.github.nisrulz.sensey.accelerometer_gestures.GestureSensorDetector;
-import com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.GestureStrategy;
+import com.github.nisrulz.sensey.gestures.GestureStrategy;
 
 public class Sensey {
 

@@ -1,9 +1,9 @@
-package com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies;
+package com.github.nisrulz.sensey.gestures;
 
 import android.hardware.SensorEvent;
 
 
-import com.github.nisrulz.sensey.accelerometer_gestures.gesture_strategies.utils.CircularBuffer;
+import com.github.nisrulz.sensey.utils.CircularBuffer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,10 +103,10 @@ public class GestureStrategy {
             return new ProcessEventResult(ProcessState.VERTICAL, timestamp);
         }
         if (x > 8) {
-            return new ProcessEventResult(ProcessState.TURN_RIGHT, timestamp);
+            return new ProcessEventResult(ProcessState.TURN_LEFT, timestamp);
         }
         if (x < -8) {
-            return new ProcessEventResult(ProcessState.TURN_LEFT, timestamp);
+            return new ProcessEventResult(ProcessState.TURN_RIGHT, timestamp);
         }
         return new ProcessEventResult(ProcessState.UNKNOWN, timestamp);
     }
